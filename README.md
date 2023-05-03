@@ -1,0 +1,2 @@
+# ServerManagement_project
+Palvelintenhallinnan kurssin loppuprojekti
