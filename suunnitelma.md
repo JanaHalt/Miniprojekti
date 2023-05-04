@@ -14,8 +14,8 @@ Toteutin projektin VirtualBoxissa asennetuilla virtuaalikoneilla. Rautana:
 - ssh 
 
 ## Master: Fedora 38 workstation  
-## Minionit:  Ubuntu 23 Server, openSuse (desktop), Archcraft (desktop), Haiku (desktop), Debian 11? (desktop) 
+## Minionit:  Ubuntu 23 Server, openSuse (workstation), Archcraft (workstation), Haiku (workstation), Debian 11 (workstation) 
 
 ## Valmistelu  
 
-Minulla oli ennestään asennettuna Debian 11 workstation 
+Minulla oli ennestään asennettuna Debian 11 workstation, joten aloitin sillä, että asensin muut yllä mainitut käyttöjärjestelmät virtuaalikoneille VirtualBoxissa. 
