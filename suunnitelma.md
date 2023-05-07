@@ -1,6 +1,6 @@
 ## Työympäristö  
 
-Toteutin projektin VirtualBoxissa asennetuilla virtuaalikoneilla. Rautana:  
+Toteutin projektin VirtualBoxissa asennetuilla virtuaalikoneilla. Rautana pöytäkone näillä spekseillä:  
 ```
 - CPU Intel(R) Core(TM) i5-2500K CPU @ 3.30GHz  3.30 GHz; RAM 8 Gt  
 - Windows 10 Pro, 64-bit  
@@ -14,8 +14,7 @@ Toteutin projektin VirtualBoxissa asennetuilla virtuaalikoneilla. Rautana:
 - ssh 
 
 ## Master: Fedora 38 workstation  
-## Minionit:  Ubuntu 23 Server, openSuse (workstation), Archcraft (workstation), Haiku (workstation), Debian 11 (workstation) 
+## Minion:  Ubuntu 23 Server, openSuse (workstation), Archcraft (workstation), Haiku (workstation), Debian 11 (workstation) 
 
 ## Valmistelu  
 
-Minulla oli ennestään asennettuna Debian 11 workstation, joten aloitin sillä, että asensin muut yllä mainitut käyttöjärjestelmät virtuaalikoneille VirtualBoxissa. 
