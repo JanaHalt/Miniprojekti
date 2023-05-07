@@ -1,2 +1,0 @@
-## Ajatuksia, vaihtoehtoja projektin aiheesta  
-
