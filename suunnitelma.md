@@ -14,7 +14,9 @@ Toteutin projektin VirtualBoxissa asennetuilla virtuaalikoneilla. Rautana pöyt�
 - ssh 
 
 ## Master: Fedora 38 workstation  
-## Minion:  Ubuntu 23 Server, openSuse (workstation), Archcraft (workstation), Haiku (workstation), Debian 11 (workstation) 
+## Minion:  Fedora 38 workstation
 
 ## Valmistelu  
+
+Aloitin sillä, että asensin kahdelle virtuaalikoneelle Fedora 38:n. Seuraavaksi asensin yhdelle salt-masterin ja toiselle salt-minionin. 
 
