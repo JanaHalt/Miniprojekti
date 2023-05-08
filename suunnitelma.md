@@ -13,9 +13,11 @@ Rautana pöytäkone näillä spekseillä:
 - kmahjongg-22.12.3-1.fc38 - suosikkipelini stressinpoistoon :)  
 - aisleriot-3.22.21-3.fc38 - korttipeli, toinen suosikkipelini stressinpoistoon :)
 - Minder-ohjelma mindmappien tekemiseen  
-- .bashrc konfaukset / aliakset 1-2 kpl  
+- .bashrc.d konfaukset / aliakset 1-2 kpl  
 - konsolin säätöjä / esim. oletusväriteeman muutos  
 - yakuake konsoli  
+
+Päädyin edellä mainittuihin ohjelmiin siksi, että ne on minulle sellaisia, joiden haluan olevan kunnossa kun alan käyttää uutta/uudestaanasennettua konetta.
 
 ## Valmistelu  
 
