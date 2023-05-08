@@ -2,7 +2,7 @@
 
 Toteutin projektin VirtualBoxissa kahdella virtuaalikoneella, joihin asensin Fedora 38:n KDE-ympäristöllä.y
 
-Rautana pöytäkone näillä spekseillä:  
+Rautana kannettava näillä spekseillä:  
 ```
 - CPU AMD Ryzen 7 4700U, Radeon Graphics, 2,00 GHz; RAM 16 Gt  
 - Windows 11 Home, 64-bit  
