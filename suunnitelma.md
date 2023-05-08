@@ -1,9 +1,11 @@
 ## Työympäristö  
 
-Toteutin projektin VirtualBoxissa asennetuilla virtuaalikoneilla. Rautana pöytäkone näillä spekseillä:  
+Toteutin projektin VirtualBoxissa kahdella virtuaalikoneella, joihin asensin Fedora 38:n KDE-ympäristöllä.y
+
+Rautana pöytäkone näillä spekseillä:  
 ```
-- CPU Intel(R) Core(TM) i5-2500K CPU @ 3.30GHz  3.30 GHz; RAM 8 Gt  
-- Windows 10 Pro, 64-bit  
+- CPU AMD Ryzen 7 4700U, Radeon Graphics, 2,00 GHz; RAM 16 Gt  
+- Windows 11 Home, 64-bit  
 ```  
 
 ### Asennettavat ohjelmat ja muut suunnitellut muutokset:  
@@ -15,12 +17,11 @@ Toteutin projektin VirtualBoxissa asennetuilla virtuaalikoneilla. Rautana pöyt�
 - konsolin säätöjä / esim. oletusväriteeman muutos  
 - yakuake konsoli  
 
-## Master: Fedora 38 workstation  
-## Minion:  Fedora 38 workstation  
-
 ## Valmistelu  
 
-Aloitin sillä, että asensin kahdelle virtuaalikoneelle Fedora 38:n. Seuraavaksi asensin yhdelle salt-masterin ja toiselle salt-minionin. 
+Aloitin sillä, että asensin kahdelle virtuaalikoneelle Fedora 38:n. Seuraavaksi asensin yhdelle salt-masterin ja toiselle salt-minionin. Salt-masterin ja -minionin asennuksessa seurasin tätä ohjetta: <a href="https://docs.saltproject.io/salt/install-guide/en/latest/topics/install-by-operating-system/fedora.html">Salt-project - Install Salt on Fedora</a>. 
 
 
 
+### Lähteet  
+https://docs.saltproject.io/salt/install-guide/en/latest/topics/install-by-operating-system/fedora.html  
