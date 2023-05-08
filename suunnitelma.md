@@ -27,8 +27,14 @@ Aloitin sillä, että asensin kahdelle virtuaalikoneelle Fedora 38:n. Seuraavaks
 - Asensin saltin: ```sudo dnf install salt-master -y``` ja ```sudo dnf install salt-minion -y```  
 - Enabloin ja käynnistin salt-master & -minion palvelut: ```sudo systemctl enable salt-master && sudo systemctl start salt-master``` ja ```sudo systemctl enable salt-minion && sudo systemctl start salt-minion```  
 - Kerroin orja-koneelle, mistä osoitteesta se tavoittaa master-koneen. Orja-koneella, kansiossa **/etc/salt/minion.d/**: ```sudoedit master.conf``` ja luotuun tiedostoon (master.conf) ```master [ip-osoite]```.  
-- 
+- Käytin komentoa ```sudo salt-key -A``` ja hyväksyin orjan **jhminion** avaimen  
+- Testasin komennolla ```sudo salt 'jhminion' test.ping```, että yhteys toimi:  
+![yhteysorjaan1](https://user-images.githubusercontent.com/78509164/236862521-92b6d5e0-1553-4d7d-a250-62dea75a1a9a.png)  
 
+
+## SSH  
+
+Tarkistin, mikä on OpenSSHn tila master- ja orja-koneilla komennolla ```sudo systemctl status sshd```. Kummallakin sain 
 
 ### Lähteet  
 https://docs.saltproject.io/salt/install-guide/en/latest/topics/install-by-operating-system/fedora.html  
