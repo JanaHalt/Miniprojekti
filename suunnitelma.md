@@ -6,17 +6,21 @@ Toteutin projektin VirtualBoxissa asennetuilla virtuaalikoneilla. Rautana pöyt�
 - Windows 10 Pro, 64-bit  
 ```  
 
-### Asennettavat ohjelmat:  
-- kmahjong-22.12.3-1.fc38  
-- aisleriot-3.22.21-3.fc38  
-- Pencil2D.x86_64  
-- micro  
-- ssh 
+### Asennettavat ohjelmat ja muut suunnitellut muutokset:  
+- ssh  
+- kmahjongg-22.12.3-1.fc38 - suosikkipelini stressinpoistoon :)  
+- aisleriot-3.22.21-3.fc38 - korttipeli, toinen suosikkipelini stressinpoistoon :)
+- Minder-ohjelma mindmappien tekemiseen  
+- .bashrc konfaukset / aliakset 1-2 kpl  
+- konsolin säätöjä / esim. oletusväriteeman muutos  
+- yakuake konsoli  
 
 ## Master: Fedora 38 workstation  
-## Minion:  Fedora 38 workstation
+## Minion:  Fedora 38 workstation  
 
 ## Valmistelu  
 
 Aloitin sillä, että asensin kahdelle virtuaalikoneelle Fedora 38:n. Seuraavaksi asensin yhdelle salt-masterin ja toiselle salt-minionin. 
+
+
 
