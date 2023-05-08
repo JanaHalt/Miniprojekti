@@ -1,6 +1,6 @@
 ## Työympäristö  
 
-Toteutin projektin VirtualBoxissa kahdella virtuaalikoneella, joihin asensin Fedora 38:n KDE-ympäristöllä.y
+Toteutin projektin VirtualBoxissa kahdella virtuaalikoneella, joihin asensin Fedora 38:n KDE-ympäristöllä.
 
 Rautana kannettava näillä spekseillä:  
 ```
