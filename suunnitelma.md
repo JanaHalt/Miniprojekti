@@ -12,10 +12,16 @@ Rautana kannettava näillä spekseillä:
 - Neovim + konfigurointi
 - .bashrc konfigurointi / alias 
 - konsolin säätöjä / oletusväriteeman muutos  
-- yakuake konsoli  
-- Aisleriot-3.22.21-3.fc38 - korttipeli, yksi suosikkipeleistäni stressinpoistoon :)
 
-Päädyin edellä mainittuihin ohjelmiin siksi, että ne on minulle sellaisia, joiden haluan olevan kunnossa kun alan käyttää uutta/uudelleenasennettua konetta. Toteutan projektin siten, että ensin teen muutoksia ja asennan ohjelmia käsin master-koneelle ja automatisoin ne orja-koneelle asennusta varten. 
+Päädyin edellä mainittuihin ohjelmiin siksi, että ne on minulle sellaisia, joiden haluan olevan kunnossa kun alan käyttää uutta/uudelleenasennettua konetta. Toteutan projektin siten, että ensin teen muutoksia ja asennan ohjelmia käsin master-koneelle ja automatisoin ne orja-koneelle asennusta varten.  
+
+### Aikaisemmat harjoitukset  
+
+<a href="https://github.com/JanaHalt/InfraAsCode/blob/3a0efe10fece61bdc1350247bb5709c70f993d51/h1-salt.md">H1 - Suolaa</a>
+<a href="">H2 - Demonit</a>  
+<a href="">H3 - Git</a>  
+<a href="">H4 - Komennus</a>  
+<a href="">H5 - Vaihtoehdot</a>  
 
 ## Valmistelu  
 
@@ -107,8 +113,39 @@ Ja vielä kokeilu orja-koneella, että luotu alias toimii:
 
 ## Konsolin oletusväriteeman muutos  
 
+<a href="https://docs.kde.org/trunk5/en/konsole/konsole/profiles.html">Kde Docs - Profiles</a> sivuilta löysin ohjeen profiilien muokkaamiseen. Ko. sivustolta minulle selvisi, että juuri profiilien avulla on mahdollista muokata mm. konsolin oletusväriteemaa ovat kansiossa ```/home/[kotikansio]/.local/share/konsole```. Tehtävän tekohetkellä oli konsolissani käytössä default-profiili, jossa perusväriteema mustalla taustalla ja valko-/sinisillä kirjaimilla ja tuo edellä mainittu kansio oli tyhjä. Päättelin, että sinne ilmestyy jokin tiedosto silloin, kun luon uuden profiilin ja niin se olikin. Eli menin konsolin asetuksiin ja sieltä *'Configure Konsole...'*:  
 
+![konsole1](https://github.com/JanaHalt/ServerManagement_project/assets/78509164/53f92f61-c024-42cf-a5af-b76bc869c2f8)  
 
+Sitten *'Profiles'* -> *'New'*, jossa sitten pääsin antamaan profiilille haluamaani nimen (tässä "Solarised") ja *'Appearance'* välilehdellä valitsemaan väriteemaa ja/tai muokkaamaan sitä:  
+
+![konsole2](https://github.com/JanaHalt/ServerManagement_project/assets/78509164/aeb3b4ae-aee9-4e11-90b0-f3a88615bf70)  
+
+Tämän jälkeen suljin konsolin ja avasin sen uudestaan ja uusi oletusväriteema oli onnistuneesti käytössä:  
+
+![konsole3](https://github.com/JanaHalt/ServerManagement_project/assets/78509164/770bab54-32bb-416b-8c84-c6cc6ba9ff25)  
+
+Kun uusi oletusväriteema oli onnistuneesti asennettu käsin, seuraavaksi aloin tekemään salt-staten, jolla ajaisin sen myös orja-koneelle. Ensimmäisenä menin tarkistamaan, että ```/home/[kotikansio]/.local/share/konsole``` kansiosta löytyy äsken luomani profiilin konfigurointitiedosto:  
+
+![konsole4](https://github.com/JanaHalt/ServerManagement_project/assets/78509164/62fe4f53-202d-4af6-9d34-f3c3df186929)  
+
+Sitten oli vuorossa konsolin oletusväriteeman muuttaminen orja-koneella saltin avulla. Kuten aiemmin aloitin luomalla uuden kansion ***colortheme*** tiedostopolkuun ```/srv/salt/```. Seuraavaksi kopioin ko. kansioon profiili-konfigurointitiedoston komennolla ```sudo cp /home/[kotikansio]/.local/share/konsole/Solarised.profile .``` (olin tuolloin kansiossa *'/srv/salt/colortheme'*). Tarkistin kopioitumisen ***ls*** komennolla ja sitten siirryin luomaan ***init.sls*** tiedoston, josta tuli tällainen:  
+
+```  
+# Set default color scheme for konsole  
+  /usr/share/config/konsole/Solarised.profile:  
+    file.managed:  
+      - source: salt://colortheme/Solarised.profile:  
+      - mode: "644"  
+ ```  
+ 
+ Ajattuani tilan orja-koneelle komennolla ```sudo salt 'jhminion' state.apply colortheme``` sain virheilmoituksen:  
+ 
+ ![konsole5](https://github.com/JanaHalt/ServerManagement_project/assets/78509164/dca3425b-f5fc-455c-a263-497ee30135b2)  
+ 
+ Epäilen, että virhe voi olla siinä, että kansio, johon yritän kopioida konsolin profiili-konfigurointitiedoston, on väärä. Vinkin, mihin kansioon se kannattaisi kopioida, löysin melko pitkän googlettelun jälkeen täältä <a href="https://forum.kde.org/viewtopic.php?f=22&t=29952">Global config for Konsole</a>. 
+ 
+ Aivan lopuksi tulen mahdollisesti vielä luomaan ***top.sls*** tilan, jolla olisi mahdollista ajaa orja-koneille kaikki aikaisemmin luomani tilat kerralla. 
 
 ### Lähteet  
 
@@ -118,5 +155,8 @@ https://linuxize.com/post/how-to-create-bash-aliases/
 
 https://builtin.com/software-engineering-perspectives/neovim-configuration  
 
+https://docs.kde.org/trunk5/en/konsole/konsole/profiles.html  
 
+https://forum.kde.org/viewtopic.php?f=22&t=29952  
 
+https://docs.saltproject.io/salt/user-guide/en/latest/topics/states.html#the-top-sls-file  
