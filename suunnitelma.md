@@ -61,7 +61,7 @@ Ensin kopioin neovimin konfigurointitiedoston polkuun ```/srv/salt/neovim``` kom
 #show row-numbers  
    /usr/share/nvim/sysinit.vim:
      file.managed:
-       - source: salt://neovim.init.vim  
+       - source: salt://neovim/init.vim  
        - mode: "644"  
 ```  
 
@@ -86,9 +86,29 @@ alias paivita="sudo dnf update -y"
 ``` 
 Tallennettuani tiedoston kirjauduin ulos käyttäjäprofiilistani ja kirjauduin takaisin (jotta se konfigurointitiedosto otetaan käyttöön) ja kokeilin, toimiiko luomani alias:  
 
-![bashrc1](https://github.com/JanaHalt/ServerManagement_project/assets/78509164/726fbe58-3f2a-46f4-87ee-327723a95e10)
+![bashrc1](https://github.com/JanaHalt/ServerManagement_project/assets/78509164/726fbe58-3f2a-46f4-87ee-327723a95e10)  
 
-### Lähteet  
-https://docs.saltproject.io/salt/install-guide/en/latest/topics/install-by-operating-system/fedora.html  
-https://linuxize.com/post/how-to-create-bash-aliases/  
+Loin tällekin muutokselle oman salt-tilan. Eli kansiossa ***/srv/salt*** komennolla ```sudo mkdir alias```. Sitten kopioin siihen **bashrc** tiedoston komennolla ```sudo cp /etc/bashrc .```, jolloin tiedosto kopioitui haluamaani kansioon. Lopuksi komennolla ```sudoedit init.sls``` ja siihen:  
+```  
+#create alias for sudo dnf update  
+  /etc/bashrc:
+    file.managed:  
+      - source: salt://alias/bashrc  
+      - mode: "644"  
+```  
+
+Sitten ajoin tilan ***jhminion*** orja-koneelle komennolla ```sudo salt 'jhminion' state.apply alias```:  
+
+![bashrc2](https://github.com/JanaHalt/ServerManagement_project/assets/78509164/9129d649-8214-4ca5-944f-93aab11e337e)  
+
+Ja vielä kokeilu orja-koneella, että luotu alias toimii:  
+
+![bashrc3](https://github.com/JanaHalt/ServerManagement_project/assets/78509164/027c6124-f92a-4eb3-a0b6-61d7ef78c134)  
+
+
+
+
+
+
+
 
