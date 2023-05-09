@@ -74,8 +74,19 @@ Testasin vielä, että **Neovim** orja-koneella käynnistyy siten, että rivinum
 [tähän tulee kuva neovim8.png]  
 
 
-## .bashrc
+## .bashrc  
 
+Välillä kyllästyttää kirjoittaa pitkää komentoa ```sudo dnf update```. Päätin tehdä sille aliaksen ja siitä sitten tilan, jota voin ajaa sitä orja-koneelle, jotta se toimii siinäkin. Aliakset voidaan luoda tiedostoon ***bashrc***, joka on kansiossa ***/etc***. Hyödynsin ohjetta <a href="https://linuxize.com/post/how-to-create-bash-aliases/">How to create bash aliases</a>.  
+Eli menin muokkaamaan tiedostoa ***etc/bashrc*** komennolla ```sudo nvim /etc/bashrc```. Lisäsin ko. tiedoston loppuun tekstin:  
+```
+# Create alias for dnf update  
+alias paivita="sudo dnf update -y"
+``` 
+Tallennettuani tiedoston kirjauduin ulos käyttäjäprofiilistani ja kirjauduin takaisin (jotta se konfigurointitiedosto otetaan käyttöön) ja kokeilin, toimiiko luomani alias:  
+
+![bashrc1](https://github.com/JanaHalt/ServerManagement_project/assets/78509164/726fbe58-3f2a-46f4-87ee-327723a95e10)
 
 ### Lähteet  
 https://docs.saltproject.io/salt/install-guide/en/latest/topics/install-by-operating-system/fedora.html  
+https://linuxize.com/post/how-to-create-bash-aliases/  
+
