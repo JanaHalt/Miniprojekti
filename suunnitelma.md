@@ -9,9 +9,9 @@ Rautana kannettava näillä spekseillä:
 ```  
 
 ### Asennettavat ohjelmat ja muut suunnitellut muutokset:  
-- Neovim
-- .bashrc.d konfaukset / aliakset 1-2 kpl  // varmista tiedostopolku
-- konsolin säätöjä / esim. oletusväriteeman muutos  
+- Neovim + konfigurointi
+- .bashrc konfigurointi / alias 
+- konsolin säätöjä / oletusväriteeman muutos  
 - yakuake konsoli  
 - Aisleriot-3.22.21-3.fc38 - korttipeli, yksi suosikkipeleistäni stressinpoistoon :)
 
