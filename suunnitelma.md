@@ -17,7 +17,7 @@ Rautana kannettava näillä spekseillä:
 - konsolin säätöjä / esim. oletusväriteeman muutos  
 - yakuake konsoli  
 
-Päädyin edellä mainittuihin ohjelmiin siksi, että ne on minulle sellaisia, joiden haluan olevan kunnossa kun alan käyttää uutta/uudelleenasennettua konetta.
+Päädyin edellä mainittuihin ohjelmiin siksi, että ne on minulle sellaisia, joiden haluan olevan kunnossa kun alan käyttää uutta/uudelleenasennettua konetta. Toteutan projektin siten, että ensin teen muutoksia ja asennan ohjelmia käsin master-koneelle ja automatisoin ne orja-koneelle asennusta varten.  
 
 ## Valmistelu  
 
@@ -34,7 +34,13 @@ Aloitin sillä, että asensin kahdelle virtuaalikoneelle Fedora 38:n. Seuraavaks
 
 ## SSH  
 
-Tarkistin, mikä on OpenSSHn tila master- ja orja-koneilla komennolla ```sudo systemctl status sshd```. Kummallakin sain 
+Tarkistin, mikä on OpenSSHn tila master- ja orja-koneilla komennolla ```sudo systemctl status sshd```. Kummallakin sain samanlaisen tuloksen, sshd löytyy, eli ei tarvitse asentaa erikseen, mutta sitä ei ole aktivoitu. Jatkoin sillä, että aktivoin sen master-koneella:  
+
+- ```sudo systemctl enable sshd```  
+- ```sudo systemctl start sshd```  
+-  ja vielä tarkistus ```sudo systemctl status sshd```, josta nähdään, että sshd on up and running ja kuuntelee portilla 22. 
+![sshd1](https://user-images.githubusercontent.com/78509164/237029370-d1e26c13-c6b9-4ad0-823e-d8232c5825f2.png)  
+
 
 ### Lähteet  
 https://docs.saltproject.io/salt/install-guide/en/latest/topics/install-by-operating-system/fedora.html  
