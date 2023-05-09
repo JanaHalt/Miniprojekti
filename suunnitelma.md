@@ -49,11 +49,11 @@ Sitten vielä menin orja-koneelle ja testasin käynnistyykö asennettu ohjelma k
 
 Seuraavaksi piti luoda konfigurointitiedosto, jolla voisin sitten sitten konfata Neovimin erilaisia ominaisuuksia. Loin tiedoston ```init.vim``` polkuun ```~/.config/nvim/```. Halusin, että Neovimin kirjoitustilassa olisi vasemmalla näkyvissä rivinumerot, joten lisäsin edellä mainittuun tiedoston tekstin ```set number```. Ja voilá, nyt rivinumerot näkyy:  
 
-[tähän tulee kuva neovim5.png]  
+![neovim5](https://github.com/JanaHalt/ServerManagement_project/assets/78509164/c64e11e7-d46b-4715-9ac0-29ee082bee75)  
 
 Ensin kopioin neovimin konfigurointitiedoston polkuun ```/srv/salt/neovim``` komennolla ```sudo cp ~/.config/nvim/init.vim```. Tarkistin, että kopiointi onnistuin komennolla ```ls /srv/salt/neovim```.  
 
-[tähän tulee kuva neovim6.png]
+![neovim6](https://github.com/JanaHalt/ServerManagement_project/assets/78509164/5387deaa-b26f-4127-9a69-979d98a2a148)  
 
  Tämän jälkeen muokkasin ***neovim***-tilaa, jotta voisin ajaa halutun konfigurointimuutoksen myös orja-koneelle. Eli neovim-tilassa olevaan init.sls tiedostoon lisäsin:  
  
@@ -67,11 +67,13 @@ Ensin kopioin neovimin konfigurointitiedoston polkuun ```/srv/salt/neovim``` kom
 
 Mode 644 tarkoittaa, että tiedoston omistajalla on luku- ja kirjoitusoikeus ja ryhmällä sekä muilla on vain lukuoikeus. Sitten ajoin tilan orja-koneelle komennolla ```sudo salt 'jhminion' state.apply neovim``` ja sain onnistuneen tuloksen:  
 
-[tähän tulee kuva neovim7kopio.png]  
+
+![neovim7kopio](https://github.com/JanaHalt/ServerManagement_project/assets/78509164/a8675134-172d-4c7c-a51f-4cc55585688b)   
 
 Testasin vielä, että **Neovim** orja-koneella käynnistyy siten, että rivinumerot näkyy:  
 
-[tähän tulee kuva neovim8.png]  
+
+![neovim8](https://github.com/JanaHalt/ServerManagement_project/assets/78509164/a7fa49a3-0315-4345-908d-0bad6d954302)    
 
 
 ## .bashrc  
