@@ -9,10 +9,8 @@ Rautana kannettava näillä spekseillä:
 ```  
 
 ### Asennettavat ohjelmat ja muut suunnitellut muutokset:  
-- ssh  
-- kmahjongg-22.12.3-1.fc38 - suosikkipelini stressinpoistoon :)  
-- aisleriot-3.22.21-3.fc38 - korttipeli, toinen suosikkipelini stressinpoistoon :)
-- Minder-ohjelma mindmappien tekemiseen  
+- Neovim
+- Aisleriot-3.22.21-3.fc38 - korttipeli, yksi suosikkipeleistäni stressinpoistoon :)
 - .bashrc.d konfaukset / aliakset 1-2 kpl  // varmista tiedostopolku
 - konsolin säätöjä / esim. oletusväriteeman muutos  
 - yakuake konsoli  
@@ -31,15 +29,7 @@ Aloitin sillä, että asensin kahdelle virtuaalikoneelle Fedora 38:n. Seuraavaks
 - Testasin komennolla ```sudo salt 'jhminion' test.ping```, että yhteys toimi:  
 ![yhteysorjaan1](https://user-images.githubusercontent.com/78509164/236862521-92b6d5e0-1553-4d7d-a250-62dea75a1a9a.png)  
 
-
-## SSH  
-
-Tarkistin, mikä on OpenSSHn tila master- ja orja-koneilla komennolla ```sudo systemctl status sshd```. Kummallakin sain samanlaisen tuloksen, sshd löytyy, eli ei tarvitse asentaa erikseen, mutta sitä ei ole aktivoitu. Jatkoin sillä, että aktivoin sen master-koneella:  
-
-- ```sudo systemctl enable sshd```  
-- ```sudo systemctl start sshd```  
--  ja vielä tarkistus ```sudo systemctl status sshd```, josta nähdään, että sshd on up and running ja kuuntelee portilla 22. 
-![sshd1](https://user-images.githubusercontent.com/78509164/237029370-d1e26c13-c6b9-4ad0-823e-d8232c5825f2.png)  
+:)
 
 
 ### Lähteet  
