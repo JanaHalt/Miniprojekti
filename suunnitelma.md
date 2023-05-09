@@ -10,12 +10,12 @@ Rautana kannettava näillä spekseillä:
 
 ### Asennettavat ohjelmat ja muut suunnitellut muutokset:  
 - Neovim
-- Aisleriot-3.22.21-3.fc38 - korttipeli, yksi suosikkipeleistäni stressinpoistoon :)
 - .bashrc.d konfaukset / aliakset 1-2 kpl  // varmista tiedostopolku
 - konsolin säätöjä / esim. oletusväriteeman muutos  
 - yakuake konsoli  
+- Aisleriot-3.22.21-3.fc38 - korttipeli, yksi suosikkipeleistäni stressinpoistoon :)
 
-Päädyin edellä mainittuihin ohjelmiin siksi, että ne on minulle sellaisia, joiden haluan olevan kunnossa kun alan käyttää uutta/uudelleenasennettua konetta. Toteutan projektin siten, että ensin teen muutoksia ja asennan ohjelmia käsin master-koneelle ja automatisoin ne orja-koneelle asennusta varten.  
+Päädyin edellä mainittuihin ohjelmiin siksi, että ne on minulle sellaisia, joiden haluan olevan kunnossa kun alan käyttää uutta/uudelleenasennettua konetta. Toteutan projektin siten, että ensin teen muutoksia ja asennan ohjelmia käsin master-koneelle ja automatisoin ne orja-koneelle asennusta varten. 
 
 ## Valmistelu  
 
@@ -31,7 +31,8 @@ Aloitin sillä, että asensin kahdelle virtuaalikoneelle Fedora 38:n. Seuraavaks
 
 ## Neovim  
 
-Aloitin asentamalla Neovim käsin master-koneelle ```sudo dnf install neovim``` ja sen jälkeen ohjelmaa pystyy käynnistämään komennolla ```nvim```.  Koska halusin toteuttaa testausta aina mahdollisimman pieni osuus kerrallaan, niin jatkoin luomalla salt-tilan, jolla asentaisin **neovim**in orja-koneelle.  
+Aloitin asentamalla Neovim käsin master-koneelle ```sudo dnf install neovim``` ja sen jälkeen ohjelmaa pystyy käynnistämään komennolla ```nvim```.  
+Jatkoin luomalla salt-tilan, jolla asentaisin **neovim**in orja-koneelle.  
 Kansioon ```/srv/salt``` loin uuden kansion ```/neovim```, johon lisäsin tiedoston ```init.sls```:  
 
 ![neovim3](https://github.com/JanaHalt/ServerManagement_project/assets/78509164/ecc4fce7-7149-453a-8bc7-62c008e26cbd)  
@@ -46,16 +47,18 @@ Sitten vielä menin orja-koneelle ja testasin käynnistyykö asennettu ohjelma k
 
 ![neovim4](https://github.com/JanaHalt/ServerManagement_project/assets/78509164/b461bfa2-c402-4514-9b37-157f79853757)  
 
+#### Neovim konfigurointimuutos  
 
-Seuraavaksi piti luoda konfigurointitiedosto, jolla voisin sitten sitten konfata Neovimin erilaisia ominaisuuksia. Loin tiedoston ```init.vim``` polkuun ```~/.config/nvim/```. Halusin, että Neovimin kirjoitustilassa olisi vasemmalla näkyvissä rivinumerot, joten lisäsin edellä mainittuun tiedoston tekstin ```set number```. Ja voilá, nyt rivinumerot näkyy:  
+Seuraavaksi piti luoda konfigurointitiedosto, jolla voisin sitten sitten konfata Neovimin erilaisia ominaisuuksia. Hyödynsin ohjetta <a href="https://builtin.com/software-engineering-perspectives/neovim-configuration">Neovim Configuration for Beginners</a>.  
+Loin tiedoston ```init.vim``` polkuun ```~/.config/nvim/```. Halusin, että Neovimin kirjoitustilassa olisi näkyvissä rivinumerot, joten lisäsin edellä mainittuun tiedoston tekstin ```set number```. Ja voilá, nyt rivinumerot näkyy:  
 
 ![neovim5](https://github.com/JanaHalt/ServerManagement_project/assets/78509164/c64e11e7-d46b-4715-9ac0-29ee082bee75)  
 
-Ensin kopioin neovimin konfigurointitiedoston polkuun ```/srv/salt/neovim``` komennolla ```sudo cp ~/.config/nvim/init.vim```. Tarkistin, että kopiointi onnistuin komennolla ```ls /srv/salt/neovim```.  
+Jotta saisin saman konfigurointimuutoksen voimaan myös orja-koneelle, aloitin sillä, että ensin kopioin **neovim**in konfigurointitiedoston polkuun ```/srv/salt/neovim``` komennolla ```sudo cp ~/.config/nvim/init.vim```. Tarkistin, että kopiointi onnistuin komennolla ```ls /srv/salt/neovim```.  
 
 ![neovim6](https://github.com/JanaHalt/ServerManagement_project/assets/78509164/5387deaa-b26f-4127-9a69-979d98a2a148)  
 
- Tämän jälkeen muokkasin ***neovim***-tilaa, jotta voisin ajaa halutun konfigurointimuutoksen myös orja-koneelle. Eli neovim-tilassa olevaan init.sls tiedostoon lisäsin:  
+ Tämän jälkeen muokkasin ***neovim***-tilaa, eli lisäsin neovim-tilassa olevaan init.sls tiedostoon:  
  
 ```
 #show row-numbers  
@@ -67,11 +70,9 @@ Ensin kopioin neovimin konfigurointitiedoston polkuun ```/srv/salt/neovim``` kom
 
 Mode 644 tarkoittaa, että tiedoston omistajalla on luku- ja kirjoitusoikeus ja ryhmällä sekä muilla on vain lukuoikeus. Sitten ajoin tilan orja-koneelle komennolla ```sudo salt 'jhminion' state.apply neovim``` ja sain onnistuneen tuloksen:  
 
-
 ![neovim7kopio](https://github.com/JanaHalt/ServerManagement_project/assets/78509164/a8675134-172d-4c7c-a51f-4cc55585688b)   
 
 Testasin vielä, että **Neovim** orja-koneella käynnistyy siten, että rivinumerot näkyy:  
-
 
 ![neovim8](https://github.com/JanaHalt/ServerManagement_project/assets/78509164/a7fa49a3-0315-4345-908d-0bad6d954302)    
 
@@ -106,9 +107,9 @@ Ja vielä kokeilu orja-koneella, että luotu alias toimii:
 ![bashrc3](https://github.com/JanaHalt/ServerManagement_project/assets/78509164/027c6124-f92a-4eb3-a0b6-61d7ef78c134)  
 
 
+### Lähteet  
 
+https://docs.saltproject.io/salt/install-guide/en/latest/topics/install-by-operating-system/fedora.html  
 
-
-
-
+https://linuxize.com/post/how-to-create-bash-aliases/  
 
