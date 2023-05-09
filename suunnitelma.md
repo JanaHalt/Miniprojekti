@@ -31,8 +31,7 @@ Aloitin sillä, että asensin kahdelle virtuaalikoneelle Fedora 38:n. Seuraavaks
 
 ## Neovim  
 
-Aloitin asentamalla Neovim käsin master-koneelle ```sudo dnf install neovim``` ja sen jälkeen ohjelmaa pystyy käynnistämään komennolla ```nvim```.  
-Jatkoin luomalla salt-tilan, jolla asentaisin **neovim**in orja-koneelle.  
+Aloitin asentamalla Neovim käsin master-koneelle komennolla ```sudo dnf install neovim``` ja sen jälkeen ohjelmaa pystyi käynnistämään komennolla ```nvim```. Jatkoin luomalla salt-tilan, jolla asentaisin **neovim**in orja-koneelle.  
 Kansioon ```/srv/salt``` loin uuden kansion ```/neovim```, johon lisäsin tiedoston ```init.sls```:  
 
 ![neovim3](https://github.com/JanaHalt/ServerManagement_project/assets/78509164/ecc4fce7-7149-453a-8bc7-62c008e26cbd)  
@@ -49,16 +48,16 @@ Sitten vielä menin orja-koneelle ja testasin käynnistyykö asennettu ohjelma k
 
 #### Neovim konfigurointimuutos  
 
-Seuraavaksi piti luoda konfigurointitiedosto, jolla voisin sitten sitten konfata Neovimin erilaisia ominaisuuksia. Hyödynsin ohjetta <a href="https://builtin.com/software-engineering-perspectives/neovim-configuration">Neovim Configuration for Beginners</a>.  
-Loin tiedoston ```init.vim``` polkuun ```~/.config/nvim/```. Halusin, että Neovimin kirjoitustilassa olisi näkyvissä rivinumerot, joten lisäsin edellä mainittuun tiedoston tekstin ```set number```. Ja voilá, nyt rivinumerot näkyy:  
+Seuraavaksi piti luoda konfigurointitiedosto, jolla voisin sitten sitten konfiguroida Neovimin erilaisia ominaisuuksia. Hyödynsin ohjetta <a href="https://builtin.com/software-engineering-perspectives/neovim-configuration">Neovim Configuration for Beginners</a>.  
+Loin tiedoston ```init.vim``` polkuun ```~/.config/nvim/```. Halusin, että Neovimin kirjoitustilassa olisi näkyvissä rivinumerot, joten lisäsin edellä mainittuun tiedoston tekstin ```set number```. Ja voilà, nyt rivinumerot näkyy:  
 
 ![neovim5](https://github.com/JanaHalt/ServerManagement_project/assets/78509164/c64e11e7-d46b-4715-9ac0-29ee082bee75)  
 
-Jotta saisin saman konfigurointimuutoksen voimaan myös orja-koneelle, aloitin sillä, että ensin kopioin **neovim**in konfigurointitiedoston polkuun ```/srv/salt/neovim``` komennolla ```sudo cp ~/.config/nvim/init.vim```. Tarkistin, että kopiointi onnistuin komennolla ```ls /srv/salt/neovim```.  
+Jotta saisin saman konfigurointimuutoksen voimaan myös orja-koneelle, aloitin sillä, että ensin kopioin **neovim**in konfigurointitiedoston polkuun ```/srv/salt/neovim``` komennolla ```sudo cp ~/.config/nvim/init.vim```. Tarkistin, että kopiointi onnistui komennolla ```ls /srv/salt/neovim```.  
 
 ![neovim6](https://github.com/JanaHalt/ServerManagement_project/assets/78509164/5387deaa-b26f-4127-9a69-979d98a2a148)  
 
- Tämän jälkeen muokkasin ***neovim***-tilaa, eli lisäsin neovim-tilassa olevaan init.sls tiedostoon:  
+ Tämän jälkeen muokkasin ***neovim***-tilaa, eli lisäsin neovim-tilassa olevaan init.sls tiedostoon seuraavan tekstin:  
  
 ```
 #show row-numbers  
@@ -79,17 +78,17 @@ Testasin vielä, että **Neovim** orja-koneella käynnistyy siten, että rivinum
 
 ## .bashrc  
 
-Välillä kyllästyttää kirjoittaa pitkää komentoa ```sudo dnf update```. Päätin tehdä sille aliaksen ja siitä sitten tilan, jota voin ajaa sitä orja-koneelle, jotta se toimii siinäkin. Aliakset voidaan luoda tiedostoon ***bashrc***, joka on kansiossa ***/etc***. Hyödynsin ohjetta <a href="https://linuxize.com/post/how-to-create-bash-aliases/">How to create bash aliases</a>.  
+Välillä kyllästyttää kirjoittaa pitkää komentoa ```sudo dnf update```. Päätin tehdä sille aliaksen ja siitä sitten tilan, jota voin ajaa sitä orja-koneelle, jotta se toimii siinäkin. Hyödynsin ohjetta <a href="https://linuxize.com/post/how-to-create-bash-aliases/">How to create bash aliases</a>. Aliakset voidaan luoda tiedostoon ***bashrc***, joka on kansiossa ***/etc***.  
 Eli menin muokkaamaan tiedostoa ***etc/bashrc*** komennolla ```sudo nvim /etc/bashrc```. Lisäsin ko. tiedoston loppuun tekstin:  
 ```
 # Create alias for dnf update  
 alias paivita="sudo dnf update -y"
 ``` 
-Tallennettuani tiedoston kirjauduin ulos käyttäjäprofiilistani ja kirjauduin takaisin (jotta se konfigurointitiedosto otetaan käyttöön) ja kokeilin, toimiiko luomani alias:  
+Tallennettuani tiedoston kirjauduin ulos käyttäjäprofiilistani ja sitten kirjauduin takaisin (jotta se konfigurointitiedosto otetaan käyttöön) ja kokeilin, toimiiko luomani alias:  
 
 ![bashrc1](https://github.com/JanaHalt/ServerManagement_project/assets/78509164/726fbe58-3f2a-46f4-87ee-327723a95e10)  
 
-Loin tällekin muutokselle oman salt-tilan. Eli kansiossa ***/srv/salt*** komennolla ```sudo mkdir alias```. Sitten kopioin siihen **bashrc** tiedoston komennolla ```sudo cp /etc/bashrc .```, jolloin tiedosto kopioitui haluamaani kansioon. Lopuksi komennolla ```sudoedit init.sls``` ja siihen:  
+Loin tällekin muutokselle oman salt-tilan. Eli kansiossa ***/srv/salt*** komennolla ```sudo mkdir alias```. Sitten kopioin siihen **bashrc** tiedoston komennolla ```sudo cp /etc/bashrc .```, jolloin tiedosto kopioitui haluamaani kansioon. Lopuksi loin init.sls tiedoston komennolla ```sudoedit init.sls``` ja siihen:  
 ```  
 #create alias for sudo dnf update  
   /etc/bashrc:
@@ -106,10 +105,18 @@ Ja vielä kokeilu orja-koneella, että luotu alias toimii:
 
 ![bashrc3](https://github.com/JanaHalt/ServerManagement_project/assets/78509164/027c6124-f92a-4eb3-a0b6-61d7ef78c134)  
 
+## Konsolin oletusväriteeman muutos  
+
+
+
 
 ### Lähteet  
 
 https://docs.saltproject.io/salt/install-guide/en/latest/topics/install-by-operating-system/fedora.html  
 
 https://linuxize.com/post/how-to-create-bash-aliases/  
+
+https://builtin.com/software-engineering-perspectives/neovim-configuration  
+
+
 
