@@ -2,7 +2,7 @@
 Tämä on Palvelintenhallinnan kurssin <a href="https://terokarvinen.com/2023/palvelinten-hallinta-2023-kevat/">Palvelinten Hallinta 2023 kevät</a> loppuprojekti.  
 ________________________________________  
 
-Tämän moduulin tarkoitus on tehdä uuden tai uudelleenasennetun koneen käytöstä mukavampaa.  
+Tämän moduulin tarkoitus on tehdä uuden tai uudelleenasennetun koneen käytöstä mukavampaa. Valinnat on tehty omieni konfigurointimieltymykseni mukaan.  
 
 Valitsin tähän moduuliin seuraavat:  
 - Neovim tekstieditorin asennus ja sen konfigurointi  
