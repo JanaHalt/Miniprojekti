@@ -13,6 +13,7 @@ Valitsin tähän moduuliin seuraavat:
 Jokaiselle muutokselle tai asennukselle on oma Salt-tilatiedosto, mikäli halutaan toteuttaa vain yksittäisiä muutoksia. Loin kuitenkin myös top.sls tiedoston, jonka avulla voidaan toteuttaa kaikki muutokset ja asennukset kerralla.  
 
 Moduulin voi ottaa käyttöön kloonaamalla tämän repositoryn ja lisäämällä sen polkuun ```/srv/salt```.  
+**HUOM!** 
 
 ### Aikaisemmat harjoitukset ja linkki Palvelinhallinta-kurssiin 
 
