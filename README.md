@@ -47,4 +47,6 @@ https://docs.saltproject.io/salt/user-guide/en/latest/topics/states.html#the-top
 
 https://developer.fedoraproject.org/tech/languages/go/go-installation.html
 
-https://developer.fedoraproject.org/tech/languages/go/go-programs.html
+https://developer.fedoraproject.org/tech/languages/go/go-programs.html  
+
+https://terokarvinen.com/2023/palvelinten-hallinta-2023-kevat/
