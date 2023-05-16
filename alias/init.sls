@@ -1,6 +1,6 @@
-# Create alias for sudo dnf update
+# Create alias
 /etc/bashrc:
   file.managed:
     - source: salt://alias/bashrc
-    - mode: " 644"
+    - mode: "0644"
 
