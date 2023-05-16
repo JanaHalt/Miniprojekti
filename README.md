@@ -21,7 +21,7 @@ Voit ottaa moduulin käyttöön seuraamalla yksityiskohtaista raporttiani <a hre
 
 Vaihda tiedostoissa ```golang/init.sls``` ja ```colortheme/init.sls``` ***janahalt***::n tilalle oma käyttäjänimi!  
 
-***sudo salt '[minion's name]' state.apply [state's name]*** sijaan käytä muotoa ***sudo salt-call --local state.apply [state's name]*** jos ajat salt-komentoja ***masterless minion***:lla.
+***sudo salt '[minion's name]' state.apply [state's name]*** sijaan käytä muotoa ***sudo salt-call --local state.apply [state's name]*** (eli esim. sudo salt-call --local state.apply neovim) jos ajat salt-komentoja ***masterless minion***:lla.
 
 ### Aikaisemmat harjoitukset ja linkki Palvelinhallinta-kurssiin 
 
