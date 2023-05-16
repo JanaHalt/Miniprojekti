@@ -15,11 +15,13 @@ Jokaiselle muutokselle tai asennukselle on oma Salt-tilatiedosto, mikäli haluta
 
 Toteutin tämän projektin kahdella VirtualBoxissa luodulla virtuaalikoneella, joilla oli asennettuna Fedora 38 workstation kde-ympäristöllä. Yksi virtuaalikone toimi tässä projektissa salt-masterina ja toinen salt-orjana.
 
-Voit ottaa moduulin käyttöön seuraamalla yksityiskohtaista raporttiani <a href="https://github.com/JanaHalt/InfraAsCode/blob/3109d33c55a6f346d93c2af7e9d0bb73f2ed9fdc/h6%20-%20Puolikas.md">Miten toteutin tämän moduulin</a>.
+Voit ottaa moduulin käyttöön seuraamalla yksityiskohtaista raporttiani <a href="https://github.com/JanaHalt/InfraAsCode/blob/3109d33c55a6f346d93c2af7e9d0bb73f2ed9fdc/h6%20-%20Puolikas.md">Miten toteutin tämän moduulin</a>.  
 
 ### HUOM!  
 
-Vaihda tiedostoissa ```golang/init.sls``` ja ```colortheme/init.sls``` ***janahalt***::n tilalle oma käyttäjänimi!
+Vaihda tiedostoissa ```golang/init.sls``` ja ```colortheme/init.sls``` ***janahalt***::n tilalle oma käyttäjänimi!  
+
+***sudo salt '[minion's name]' state.apply [state's name]*** sijaan käytä muotoa ***sudo salt-call --local state.apply [state's name]*** jos ajat salt-komentoja ***masterless minion***:lla.
 
 ### Aikaisemmat harjoitukset ja linkki Palvelinhallinta-kurssiin 
 
