@@ -10,7 +10,7 @@
 # Copy profile file
 /home/janahalt/.local/share/konsole/Solarised.profile:
   file.managed:
-    - source: salt://colortheme/Solarised.profile
+    - source: salt://Miniprojekti/colortheme/Solarised.profile
     - user: janahalt
     - group: janahalt
     - mode: "0644"
@@ -18,7 +18,7 @@
 # Set profile as default
 /home/janahalt/.config/konsolerc:
   file.managed:
-    - source: salt://colortheme/setdefault
+    - source: salt://Miniprojekti/colortheme/setdefault
     - user: janahalt
     - group: janahalt
     - mode: "0644"
