@@ -5,5 +5,5 @@ neovim:
 # Show row-numbers
 /usr/share/nvim/sysinit.vim:
   file.managed:
-    - source: salt://neovim/init.vim
+    - source: salt://Miniprojekti/neovim/init.vim
     - mode: "0644"
