@@ -25,6 +25,7 @@ Moduulin voi ottaa käyttöön myös kloonaamalla:
 ![image](https://github.com/JanaHalt/Miniprojekti/assets/78509164/17d36b0b-4dd5-422c-8ef0-9b71a5982b88)  
 
 - mene haluamaasi kansioon, esimerkiksi ```/home/omanimi/salt```  
+- kloonaa repository komennolla ```git clone [linkki]```  
 - aja komento ```sudo cp -r Miniprojekti/* /srv/salt``` - tämä kopioi Miniprojekti-kansion **sisällön** /srv/salt-kansioon  
 - voi ajaa tilat orja-koneille (sudo salt 'minionname' state.apply **statename**) tai omalle koneellesi (sudo salt-call --local state.apply **statename**), jos sinulla on siinä masterless-minioni  
 - top.sls tiedosto ajetaan muodossa ```sudo salt 'minionname' state.highstate``` tai ```sudo salt-call --local state.highstate```
