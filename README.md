@@ -17,6 +17,18 @@ Toteutin tämän projektin kahdella VirtualBoxissa luodulla virtuaalikoneella, j
 
 Voit ottaa moduulin käyttöön seuraamalla yksityiskohtaista raporttiani <a href="https://github.com/JanaHalt/InfraAsCode/blob/3109d33c55a6f346d93c2af7e9d0bb73f2ed9fdc/h6%20-%20Puolikas.md">Miten toteutin tämän moduulin</a>.  
 
+Moduulin voi ottaa käyttöön myös kloonaamalla:  
+
+- varmista, että sinulta löytyy kansio ```/srv/salt/```!
+
+- kopioi repositoryn url
+![image](https://github.com/JanaHalt/Miniprojekti/assets/78509164/17d36b0b-4dd5-422c-8ef0-9b71a5982b88)  
+
+- mene haluamaasi kansioon, esimerkiksi ```/home/omanimi/salt```  
+- aja komento ```sudo cp -r Miniprojekti/* /srv/salt``` - tämä kopioi Miniprojekti-kansion **sisällön** /srv/salt-kansioon  
+- voi ajaa tilat orja-koneille (sudo salt 'minionname' state.apply **statename**) tai omalle koneellesi (sudo salt-call --local state.apply **statename**), jos sinulla on siinä masterless-minioni  
+- top.sls tiedosto ajetaan muodossa ```sudo salt 'minionname' state.highstate``` tai ```sudo salt-call --local state.highstate```
+
 ### HUOM!  
 
 Vaihda tiedostoissa ```golang/init.sls``` ja ```colortheme/init.sls``` ***janahalt***::n tilalle oma käyttäjänimi!  
