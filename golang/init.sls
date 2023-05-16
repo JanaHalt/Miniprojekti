@@ -3,7 +3,7 @@ golang:
   pkg.installed  
 
 # Create workspace  
-~/$HOME/go:  
+/home/janahalt/go:  
   file.directory:  
     - user: janahalt  
     - group: janahalt  
