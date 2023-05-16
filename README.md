@@ -15,11 +15,11 @@ Jokaiselle muutokselle tai asennukselle on oma Salt-tilatiedosto, mikäli haluta
 
 Toteutin tämän projektin kahdella VirtualBoxissa luodulla virtuaalikoneella, joilla oli asennettuna Fedora 38 workstation kde-ympäristöllä. Yksi virtuaalikone toimi tässä projektissa salt-masterina ja toinen salt-orjana.
 
-Voit ottaa moduulin käyttöön seuraamalla yksityiskohtaista raporttiani <a href="https://github.com/JanaHalt/InfraAsCode/blob/3109d33c55a6f346d93c2af7e9d0bb73f2ed9fdc/h6%20-%20Puolikas.md">Miten toteutin tämän moduulin</a>.  
+Voit ottaa moduulin käyttöön seuraamalla raporttiani <a href="https://github.com/JanaHalt/InfraAsCode/blob/3109d33c55a6f346d93c2af7e9d0bb73f2ed9fdc/h6%20-%20Puolikas.md">Miten toteutin tämän moduulin</a>.  
 
 Moduulin voi ottaa käyttöön myös kloonaamalla:  
 
-- varmista, että sinulta löytyy kansio ```/srv/salt/```!
+- varmista, että sinulta löytyy kansio ```/srv/salt/```! Tarvittaessa luo sellainen komennolla ```sudo mkdir -p /srv/salt```.  
 
 - kopioi repositoryn url
 ![image](https://github.com/JanaHalt/Miniprojekti/assets/78509164/17d36b0b-4dd5-422c-8ef0-9b71a5982b88)  
